@@ -5,12 +5,12 @@ pub struct CreateTodoReq {
     pub id: i64,
     pub title: String,
     pub status: i32,
-    pub description: String,
+    pub description: Option<String>,
 }
 
-#[derive(Debug)]
+#[derive(Deserialize, Debug)]
 pub struct UpdateTodoReq {
-    id: i64,
-    title: String,
-    status: i32,
+    pub title: Option<String>,
+    pub status: Option<i32>,
+    pub description: Option<String>,
 }
