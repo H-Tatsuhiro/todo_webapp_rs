@@ -1,5 +1,5 @@
 -- Add up migration script here
-create table todos (
+CREATE TABLE IF NOT EXISTS todos (
     id INTEGER PRIMARY KEY ,
     title TEXT NOT NULL ,
     status INTEGER NOT NULL ,
@@ -7,3 +7,5 @@ create table todos (
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+
+ALTER TABLE todos MODIFY id INTEGER AUTO_INCREMENT;
