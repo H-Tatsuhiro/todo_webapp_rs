@@ -2,6 +2,7 @@ use serde::Deserialize;
 
 #[derive(Deserialize, Debug)]
 pub struct CreateTodoReq {
+    pub id: i64,
     pub title: String,
     pub status: i32,
     pub description: Option<String>,
