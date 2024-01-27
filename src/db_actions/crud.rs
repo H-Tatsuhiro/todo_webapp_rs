@@ -5,8 +5,7 @@ use sch::request::{CreateTodoReq, UpdateTodoReq};
 
 pub async fn create_todo(pool: &MySqlPool, req: CreateTodoReq) -> Result<u64, sqlx::Error> {
    let result = sqlx::query!(
-       "INSERT INTO todos (id, title, status, description) VALUES (?, ?, ?, ?)",
-       req.id,
+       "INSERT INTO todos (title, status, description) VALUES (?, ?, ?)",
        req.title,
        req.status,
        req.description
