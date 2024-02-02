@@ -26,7 +26,6 @@ async fn register() -> impl Responder {
 #[post("/add_todo")]
 async fn add(posted_json: web::Json<CreateTodoReq>) -> impl Responder {
     let new_todo = CreateTodoReq {
-        id: posted_json.id,
         title: posted_json.title.clone(),
         status: posted_json.status,
         description: posted_json.description.clone(),
@@ -81,7 +80,7 @@ async fn update(path: web::Path<i64>, posted_json: web::Json<UpdateTodoReq>) -> 
 async fn main() -> std::io::Result<()> {
     HttpServer::new(|| App::new()
         .service(index).service(login).service(logout).service(register).service(add).service(delete).service(get_all).service(get_one).service(update))
-        .bind(("127.0.0.1", 8080))?
+        .bind(("0.0.0.0", 50001))?
         .run()
         .await
 }
