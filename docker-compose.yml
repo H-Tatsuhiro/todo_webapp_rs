@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  cloud-sql-proxy:
+    image: gcr.io/cloud-sql-connectors/cloud-sql-proxy:2.8.2
+    container_name: cloud-sql-proxy
+    volumes:
+      - ./creds/cloud-sql-proxy.json:/cloud-sql-proxy.json
+    ports:
+      - "127.0.0.1:3306:3306"
+    command: --address 0.0.0.0 --port 3306 --credentials-file /cloud-sql-proxy.json noble-feat-411616:us-central1:todoapp
+
+  app:
+    image: htatsuhiro/todo_webapp_rs_ap:0.1.2
+    container_name: todo_webapp_rs_ap
+    ports:
+      - "8080:80"
+    env_file:
+      - .env
