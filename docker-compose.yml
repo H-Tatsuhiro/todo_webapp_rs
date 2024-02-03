@@ -13,7 +13,7 @@ services:
     command: --address 0.0.0.0 --port 3306 --credentials-file /cloud-sql-proxy.json $INSTANCE_CONNECTION_NAME
 
   app:
-    image: htatsuhiro/todo_webapp_rs_ap:0.2.1
+    image: htatsuhiro/todo_webapp_rs_ap:0.2.2
     container_name: todo_webapp_rs_ap
     ports:
       - "8080:80"
