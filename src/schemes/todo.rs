@@ -9,4 +9,3 @@ pub struct Todo {
     pub created_at: chrono::NaiveDateTime,
     pub updated_at: chrono::NaiveDateTime,
 }
-

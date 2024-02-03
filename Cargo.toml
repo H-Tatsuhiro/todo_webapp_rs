@@ -9,8 +9,6 @@ authors = ["privath"]
 
 [dependencies]
 actix-web = "4.4.1"
-dotenv = "0.15.0"
-handlebars = "5.0.0"
 serde = { version = "1.0.195", features = ["derive"] }
 sqlx = { version = "0.7.3", features = ["mysql", "chrono", "runtime-tokio-native-tls"] }
 tokio = { version = "1.35.1", features = ["full"] }
